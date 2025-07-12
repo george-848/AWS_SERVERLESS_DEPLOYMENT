@@ -3,7 +3,7 @@ AWS Serverless Student Data Web App
 
 # 🎓 AWS Serverless Student Data Web App
 
-A simple serverless web app project built as part of my cloud engineering training at Apponix Academy.
+A simple serverless web app project built as part of my cloud engineering training at Apponix Academy and Thrive Africa Projects.
 
 ## 💻 Features
 - Users can **add student details** via a frontend form
