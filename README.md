@@ -8,6 +8,7 @@ A simple serverless web app project built as part of my cloud engineering traini
 ## 💻 Features
 - Users can **add student details** via a frontend form
 - Student data is stored and retrieved using **AWS DynamoDB**
+- Lambda functions invoked by **API GATEWAY** to access DB
 - Backend logic handled by **AWS Lambda** using Python runtime 13.12
 - Allowed access to read & write to Database using **Identity & Access Managements**
 - App is hosted on **AWS Amplify** with a custom domain via **Route 53** bought from Namecheap
@@ -17,11 +18,12 @@ A simple serverless web app project built as part of my cloud engineering traini
 - **Frontend:** HTML/CSS/JS (hosted on Amplify)
 - **Backend:** AWS Lambda (Python 13.12)
 - **POLICY:** IAM
+- **Post & Get**  API GATEWAY
 - **Database:** AWS DynamoDB
 - **CI/CD:** GitHub + Amplify
 - **Domain:** Route 53 custom domain
 
-## 📂 Architecture Diagram
+## 📂 AWS SERVERLESS Architecture
 ![AWS SERVERLESS Architecture](dia.png)
 
 ## 📘 Learning Outcomes
