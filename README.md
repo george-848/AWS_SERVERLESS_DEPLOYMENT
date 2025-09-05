@@ -22,8 +22,6 @@ A simple serverless web app project built as part of my cloud engineering traini
 - **Database:** AWS DynamoDB
 - **CI/CD:** GitHub + Amplify
 - **Domain:** Route 53 custom domain
-  
-  - sudo apt update -y
 
 ## 📂 AWS SERVERLESS Architecture
 ![AWS SERVERLESS Architecture](dia.png)
