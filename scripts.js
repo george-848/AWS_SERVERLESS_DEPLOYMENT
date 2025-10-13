@@ -53,5 +53,4 @@ document.getElementById("getstudents").onclick = function() {
       alert("Error retrieving student data.");
     }
   });
-};
-
+}
