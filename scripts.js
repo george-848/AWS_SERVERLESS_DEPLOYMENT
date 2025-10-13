@@ -1,5 +1,3 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
 const API_ENDPOINT = "https://8zk6m7boz6.execute-api.us-east-1.amazonaws.com/prod"; // or prod/student if your route has one
 
 // POST student data
@@ -56,4 +54,4 @@ document.getElementById("getstudents").onclick = function() {
     }
   });
 };
-</script>
+
