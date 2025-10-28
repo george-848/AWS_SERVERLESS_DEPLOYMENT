@@ -1,43 +1,21 @@
 import json
 import boto3
 
+# Create a DynamoDB object using the AWS SDK
 dynamodb = boto3.resource('dynamodb')
+# Use the DynamoDB object to select our table
 table = dynamodb.Table('studentData')
 
+# Define the handler function that the Lambda service will use as an entry point
 def lambda_handler(event, context):
-    # Handle API Gateway JSON body
-    try:
-        body = json.loads(event.get('body', '{}'))
-    except Exception as e:
-        return {
-            'statusCode': 400,
-            'headers': {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type'
-            },
-            'body': json.dumps({'error': f'Invalid JSON: {str(e)}'})
-        }
-
-    # Extract fields safely
-    student_id = body.get('studentid')
-    name = body.get('name')
-    student_class = body.get('class')
-    age = body.get('age')
-
-    if not all([student_id, name, student_class, age]):
-        return {
-            'statusCode': 400,
-            'headers': {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type'
-            },
-            'body': json.dumps({'error': 'Missing required fields'})
-        }
-
-    # Save to DynamoDB
-    table.put_item(
+    # Extract values from the event object we got from the Lambda service and store in variables
+    student_id = event['studentid']
+    name = event['name']
+    student_class = event['class']
+    age = event['age']
+    
+    # Write student data to the DynamoDB table and save the response in a variable
+    response = table.put_item(
         Item={
             'studentid': student_id,
             'name': name,
@@ -45,14 +23,9 @@ def lambda_handler(event, context):
             'age': age
         }
     )
-
-    # Return success response with CORS headers
+    
+    # Return a properly formatted JSON object
     return {
         'statusCode': 200,
-        'headers': {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type'
-        },
-        'body': json.dumps({'message': 'Student data saved successfully!'})
+        'body': json.dumps('Student data saved successfully!')
     }
